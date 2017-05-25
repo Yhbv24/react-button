@@ -24,7 +24,7 @@ class Layout extends Component {
   render() {
     return (
       <div>
-        <ButtonPress onclick={this.clicker} text={this.buttonText()} />
+        <ButtonPress clicked={this.clicker} text={this.buttonText()} />
       </div>
     );
   }
