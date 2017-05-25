@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ButtonPress from './ButtonPress.js';
 
 class Layout extends Component {
   constructor() {
@@ -6,10 +7,9 @@ class Layout extends Component {
     this.state = {
       clicked: false
     }
+    this.clicker = this.clicker.bind(this);
+    this.buttonText = this.buttonText.bind(this);
   }
-
-  clicker = this.clicker.bind(this);
-  buttonText = this.buttonText.bind(this);
 
   clicker() {
     this.setState({
@@ -18,17 +18,13 @@ class Layout extends Component {
   }
 
   buttonText() {
-    if (this.state.clicked) {
-      return "Clicked!";
-    } else {
-      return "Unclicked!";
-    }
+    return this.state.clicked ? "Clicked" : "Unclicked!";
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.clicker}>{this.buttonText()}</button>
+        <ButtonPress onclick={this.clicker} text={this.buttonText()} />
       </div>
     );
   }
